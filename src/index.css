@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+/* #logo{
+  background-color: url('../public/logo.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+} */
