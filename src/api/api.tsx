@@ -8,13 +8,23 @@ interface ApiProps {
 }
 
 export function Api() {
+  // const [search, setSearch] = useState<string>('')
   const [api, setApi] = useState<ApiProps[]>()
 
+  // const test = ''
+
   useEffect(() => {
-    axios.get('https://back-end-blog-sml1.onrender.com').then((response) => {
-      console.log(response.data)
-      setApi(response.data)
-    })
+    // console.log(search)
+
+    axios
+      .get(`https://back-end-blog-sml1.onrender.com/?search=`)
+      .then((response) => {
+        console.log(response.data)
+        setApi(response.data)
+      })
+      .catch((err) => {
+        console.log(new Error(err))
+      })
   }, [])
 
   return { api }
