@@ -1,8 +1,9 @@
 import { Header } from './components/header'
 import { Postagens } from './components/postagem'
 import { Tabs } from './components/tabs/tabs'
-// import { Api } from './api/api'
-import { useQuery } from '@tanstack/react-query'
+import { Loader2 } from 'lucide-react'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import { useSearchParams } from 'react-router-dom'
 
 export interface PostResponse {
   id: string
@@ -11,13 +12,17 @@ export interface PostResponse {
 }
 
 export function App() {
-  // const { api } = Api()
+  const [searchParms] = useSearchParams()
+
+  const search = searchParms.get('search')
+    ? String(searchParms.get('search'))
+    : ''
 
   const { data: postsResponse, isLoading } = useQuery<PostResponse[]>({
-    queryKey: ['get-posts'],
+    queryKey: ['get-posts', search],
     queryFn: async () => {
       const response = await fetch(
-        'https://back-end-blog-sml1.onrender.com/?search=',
+        `https://back-end-blog-sml1.onrender.com/?search=${search}`,
       )
       const data = await response.json()
 
@@ -25,10 +30,16 @@ export function App() {
 
       return data
     },
+    placeholderData: keepPreviousData,
+    staleTime: 1000 * 60,
   })
 
   if (isLoading) {
-    return null
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <Loader2 className="animate-spin" size={50} />
+      </div>
+    )
   }
 
   return (
@@ -40,7 +51,7 @@ export function App() {
         <Tabs />
       </div>
       <main
-        className="py-10 px-10 max-w-6xl mx-auto max-h-[450px] rounded-md space-y-5 overflow-y-scroll overflow-hidden scroll-smooth"
+        className="py-5 px-10 max-w-6xl mx-auto max-h-[450px] rounded-md space-y-5 overflow-y-auto overflow-hidden scroll-smooth"
         id="scroll-posts"
       >
         <div className="flex flex-col ">
