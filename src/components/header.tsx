@@ -1,8 +1,10 @@
 import { CircleUserRound } from 'lucide-react'
 
 export function Header() {
+  // console.log(pathname.toString())
+
   return (
-    <header className="flex flex-col justify-center px-10 h-32 border-b-[0.5px] border-zinc-700 overflow-hidden">
+    <header className="flex flex-col justify-center px-10 h-[8.4rem] border-b-[0.5px] border-zinc-700 overflow-hidden">
       <div className="flex pt-10 justify-between items-center h-1/2 text-base overflow-hidden">
         <div className="flex items-center text-zinc-50 text-xs font-medium gap-5">
           <img src="./logo.svg" alt="logo" className="w-20 h-14 object-cover" />
@@ -26,7 +28,7 @@ export function Header() {
           </button>
         </div>
       </div>
-      <div className="flex px-5 items-center gap-3 h-1/2 font-medium text-xs">
+      <div className="flex px-3 items-center gap-3 h-1/2 font-medium text-xs">
         <button className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300">
           Sobre mim
         </button>

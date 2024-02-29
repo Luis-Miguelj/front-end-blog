@@ -1,4 +1,3 @@
-import { Header } from './components/header'
 import { Postagens } from './components/postagem'
 import { Tabs } from './components/tabs/tabs'
 import { Loader2 } from 'lucide-react'
@@ -36,7 +35,7 @@ export function App() {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex justify-center items-center">
+      <div className="h-[80vh] flex justify-center items-center">
         <Loader2 className="animate-spin" size={50} />
       </div>
     )
@@ -44,10 +43,7 @@ export function App() {
 
   return (
     <div className="space-y-5">
-      <div className="space-y-5">
-        <Header />
-      </div>
-      <div className="px-10 max-w-6xl mx-auto">
+      <div className="px-10 pt-5 max-w-6xl mx-auto">
         <Tabs />
       </div>
       <main

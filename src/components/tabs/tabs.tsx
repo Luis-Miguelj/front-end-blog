@@ -6,9 +6,12 @@ export function Tabs() {
       <div className="flex justify-between">
         <div className="flex items-center gap-5">
           <h1 className="text-xl font-medium">Postagens</h1>
-          <button className="text-xs font-medium p-1 bg-zinc-700 rounded hover:bg-zinc-400 transition-all duration-300">
+          <a
+            href="/postagens"
+            className="text-xs font-medium p-1 bg-zinc-700 rounded hover:bg-zinc-400 transition-all duration-300"
+          >
             New Post
-          </button>
+          </a>
         </div>
         <Input />
       </div>
