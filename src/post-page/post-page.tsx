@@ -1,4 +1,4 @@
-// import { useMutation } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { useState } from 'react'
@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 // interface PostPageProps {
 //   title: string
-//   postagem: string
+//   postagens: string
 // }
 
 const createPostSchema = z.object({
@@ -29,15 +29,29 @@ const createPostSchema = z.object({
 type CreatePostFormData = z.infer<typeof createPostSchema>
 
 export function PostPage() {
-  // const { mutate } = useMutation(async (data: any) => {
-  //   await fetch('https://back-end-blog-sml1.onrender.com/postagem', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(data),
-  //   })
-  // })
+  const mutation = useMutation({
+    mutationFn: async (post: any) => {
+      const response = await fetch(
+        'https://back-end-blog-sml1.onrender.com/postagens',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(post),
+        },
+      )
+
+      const data = response.json()
+      console.log(data)
+
+      return data
+    },
+    onSuccess: (data) => {
+      console.log({ data })
+    },
+    mutationKey: ['get-posts'],
+  })
 
   const {
     register,
@@ -49,7 +63,8 @@ export function PostPage() {
 
   const [output, setOutput] = useState('')
 
-  function createPost(data: object) {
+  function createPost(data: any) {
+    mutation.mutate(data)
     setOutput(JSON.stringify(data))
   }
 

@@ -10,7 +10,7 @@ export function Header() {
           <img src="./logo.svg" alt="logo" className="w-20 h-14 object-cover" />
           <div className="flex gap-3">
             <p className="text-zinc-600 font-semibold">/</p>
-            <button>Início</button>
+            <a href="/">Início</a>
             <p className="text-zinc-600 font-semibold">/</p>
             <h1>Cargo: Visitante</h1>
           </div>
