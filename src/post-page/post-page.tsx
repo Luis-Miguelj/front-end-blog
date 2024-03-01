@@ -1,13 +1,13 @@
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { useState } from 'react'
+// import { useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-// interface PostPageProps {
-//   title: string
-//   postagens: string
-// }
+interface PostPageProps {
+  title: string
+  postagens: string
+}
 
 const createPostSchema = z.object({
   title: z
@@ -30,7 +30,7 @@ type CreatePostFormData = z.infer<typeof createPostSchema>
 
 export function PostPage() {
   const mutation = useMutation({
-    mutationFn: async (post: any) => {
+    mutationFn: async (post) => {
       const response = await fetch(
         'https://back-end-blog-sml1.onrender.com/postagens',
         {
@@ -47,9 +47,7 @@ export function PostPage() {
 
       return data
     },
-    onSuccess: (data) => {
-      console.log({ data })
-    },
+
     mutationKey: ['get-posts'],
   })
 
@@ -61,11 +59,11 @@ export function PostPage() {
     resolver: zodResolver(createPostSchema),
   })
 
-  const [output, setOutput] = useState('')
+  // const [output, setOutput] = useState('')
 
   function createPost(data: any) {
     mutation.mutate(data)
-    setOutput(JSON.stringify(data))
+    // setOutput(JSON.stringify(data))
   }
 
   return (
@@ -118,7 +116,6 @@ export function PostPage() {
           </div>
         </form>
       </main>
-      <pre className="text-zinc-50">{output}</pre>
     </div>
   )
 }

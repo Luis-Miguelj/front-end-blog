@@ -54,7 +54,11 @@ export function App() {
           <div className="space-y-16">
             {postsResponse?.map((items) => (
               <div key={items.id} className="space-y-8 overflow-hidden">
-                <Postagens title={items.title} postagem={items.postagem} />
+                <Postagens
+                  id={items.id}
+                  title={items.title}
+                  postagem={items.postagem}
+                />
               </div>
             ))}
           </div>
