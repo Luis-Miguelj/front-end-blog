@@ -28,16 +28,16 @@ export function Postagens({ title, postagem, id }: PostagensProps) {
   }
 
   return (
-    <div className="flex justify-between py-3 border-b-[1px] border-zinc-700">
+    <div className="flex justify-between max-md:flex-col py-3 border-b-[1px] border-zinc-700">
       <div className="flex flex-col space-y-3 max-w-xl break-words">
         <div className="flex flex-col space-y-3 max-w-xl break-words h-2/3">
           <h1 className="text-xl font-medium">{title}</h1>
           <p className="text-sm">{postagem}</p>
         </div>
-        <div className="h-1/3 flex justify-start items-end">
+        <div className="h-1/3 flex justify-start max-md:justify-end max-md:py-5 items-end">
           <button
             className="text-xs font-medium p-1 bg-zinc-700 hover:bg-zinc-400 transition-all duration-300 rounded"
-            onClick={() => handleDeletePost(id)}
+            onClick={() => handleDeletePost(id!)}
           >
             Excluir
           </button>
