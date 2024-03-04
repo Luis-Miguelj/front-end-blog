@@ -4,10 +4,10 @@ import './css/sobre-mim.css'
 
 export function SobreMim() {
   return (
-    <div className="flex justify-between 2xl:max-w-6xl sm:max-w-4xl gap-10 max-2xl:flex-col max-2xl:items-center mx-auto h-96 text-zinc-50 py-10">
-      <div className="flex max-sm:flex-col space-x-10 h-96 max-sm:h-[500px] max-sm:space-y-5">
+    <div className="flex justify-between 2xl:max-w-6xl sm:max-w-4xl gap-10 max-2xl:flex-col max-2xl:items-center max-sm:pb-10 mx-auto h-96 text-zinc-50 py-10">
+      <div className="flex max-sm:flex-col space-x-10 h-96 max-sm:h-[550px] max-sm:space-y-5">
         <div
-          className="w-96 h-96 max-md:w-72 max-sm:w-72 max-sm:h-[450px]  rounded-lg"
+          className="w-96 h-96 max-md:w-72 max-sm:w-72 max-sm:h-[420px]  rounded-lg"
           id="img-perfil"
         ></div>
         <div className="flex flex-col space-y-6">
