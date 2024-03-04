@@ -29,9 +29,12 @@ export function Header() {
         </div>
       </div>
       <div className="flex px-3 items-center gap-3 h-1/2 font-medium text-xs">
-        <button className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300">
+        <a
+          href="/sobre-mim"
+          className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300"
+        >
           Sobre mim
-        </button>
+        </a>
         <button className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300">
           Configurações
         </button>

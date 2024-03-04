@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 interface PostagensProps {
   id?: string
-  title: string
-  postagem: string
+  title?: string
+  postagem?: string
 }
 
 export function Postagens({ title, postagem, id }: PostagensProps) {
@@ -37,7 +37,7 @@ export function Postagens({ title, postagem, id }: PostagensProps) {
         <div className="h-1/3 flex justify-start items-end">
           <button
             className="text-xs font-medium p-1 bg-zinc-700 hover:bg-zinc-400 transition-all duration-300 rounded"
-            onClick={() => handleDeletePost(id!)}
+            onClick={() => handleDeletePost(id)}
           >
             Excluir
           </button>

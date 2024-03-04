@@ -6,6 +6,7 @@ import { PostPage } from './post-page/post-page'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
+import { SobreMim } from './sobre-mim/sobre-mim'
 
 const queryClient = new QueryClient()
 
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: '/postagens',
     element: <PostPage />,
+  },
+  {
+    path: '/sobre-mim',
+    element: <SobreMim />,
   },
 ])
 
