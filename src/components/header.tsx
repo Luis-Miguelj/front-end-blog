@@ -3,8 +3,12 @@ import { CircleUserRound } from 'lucide-react'
 export function Header() {
   // console.log(pathname.toString())
 
+  const width = window.innerWidth
+
+  console.log(width)
+
   return (
-    <header className="flex flex-col justify-center px-10 h-[8.4rem] border-b-[0.5px] border-zinc-700 overflow-hidden">
+    <header className="flex flex-col justify-center px-10 h-[8.5rem] border-b-[0.5px] border-zinc-700 overflow-hidden">
       <div className="flex pt-10 justify-between items-center h-1/2 text-base overflow-hidden">
         <div className="flex items-center text-zinc-50 text-xs font-medium gap-5">
           <img src="./logo.svg" alt="logo" className="w-20 h-14 object-cover" />
@@ -15,20 +19,13 @@ export function Header() {
             <h1>Cargo: Visitante</h1>
           </div>
         </div>
-        <div className="flex items-center justify-center h-64 overflow-hidden space-x-3">
-          <div className="text-xs font-medium">
-            <p>Luis Miguel</p>
-            <div className="flex items-center gap-1">
-              <p>Status: Online</p>
-              {/* <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> */}
-            </div>
-          </div>
+        <div className="flex items-center justify-center h-64 overflow-hidden">
           <button className="full">
-            <CircleUserRound size={30} />
+            <CircleUserRound size={32} />
           </button>
         </div>
       </div>
-      <div className="flex px-3 items-center gap-3 h-1/2 font-medium text-xs">
+      <div className="flex px-3 items-center max-sm:justify-center gap-3 h-1/2 font-medium text-xs">
         <a
           href="/sobre-mim"
           className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300"
