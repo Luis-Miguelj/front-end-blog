@@ -29,11 +29,11 @@ export function Header() {
 
   console.log(user)
 
-  if (user.email === 'luismigueljacobus01@gmail.com') {
-    setCargo('Adm')
-  } else {
-    setCargo('Visitante')
-  }
+  // if (user.email === 'luismigueljacobus01@gmail.com') {
+  //   setCargo('Adm')
+  // } else {
+  //   setCargo('Visitante')
+  // }
 
   function handleModal(validate: boolean) {
     if (!validate) {
