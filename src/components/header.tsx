@@ -2,6 +2,11 @@ import { CircleUserRound } from 'lucide-react'
 import { User } from '../user/user'
 import { useEffect, useState } from 'react'
 
+// interface DadosProps {
+//   username: string
+//   email: string
+// }
+
 export function Header() {
   // console.log(pathname.toString())
 
@@ -16,11 +21,11 @@ export function Header() {
     const dados = JSON.parse(userLocalStorage as string)
 
     // console.log(dados)
-    if (dados !== '') {
-      setUser(dados)
-    } else {
-      alert('erro')
-    }
+    // if (dados !== '') {
+    //   setUser(dados)
+    // } else {
+    //   alert('erro')
+    // }
 
     if (dados.email === 'luismigueljacobus01@gmail.com') {
       console.log('passou')
