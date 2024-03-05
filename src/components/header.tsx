@@ -8,16 +8,15 @@ export function Header() {
   const width = window.innerWidth
   const [cargo, setCargo] = useState('')
   const [user, setUser] = useState({
-    username: '',
-    email: '',
+    // username: '',
+    // email: '',
   })
 
   console.log(width)
   const [showOrClose, setShowOrClose] = useState<boolean>()
 
-  const userLocalStorage = localStorage.getItem('dados')
-
   useEffect(() => {
+    const userLocalStorage = localStorage.getItem('dados')
     const dados = JSON.parse(userLocalStorage!)
 
     // console.log(dados)
@@ -26,7 +25,7 @@ export function Header() {
     } else {
       alert('erro')
     }
-  }, [userLocalStorage])
+  }, [])
 
   console.log(user)
 
