@@ -17,7 +17,7 @@ export function Header() {
 
   useEffect(() => {
     const userLocalStorage = localStorage.getItem('dados')
-    const dados = JSON.parse(userLocalStorage!)
+    const dados = JSON.parse(userLocalStorage as string)
 
     // console.log(dados)
     if (dados !== '') {
