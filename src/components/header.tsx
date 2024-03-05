@@ -18,25 +18,21 @@ export function Header() {
 
   useEffect(() => {
     const userLocalStorage = localStorage.getItem('dados')
-    const dados: DadosProps = JSON.parse(userLocalStorage as string)
 
-    // console.log(dados)
-    // if (dados !== '') {
-    //   setUser(dados)
-    // } else {
-    //   alert('erro')
-    // }
+    if (userLocalStorage) {
+      const dados: DadosProps = JSON.parse(userLocalStorage!)
 
-    if (dados.email === 'luismigueljacobus01@gmail.com') {
-      console.log('passou')
-      setCargo('Adm')
-    } else {
-      console.log('n consta')
-      setCargo('Visitante')
-    }
+      if (dados.email === 'luismigueljacobus01@gmail.com') {
+        console.log('passou')
+        setCargo('Adm')
+      } else {
+        console.log('n consta')
+        setCargo('Visitante')
+      }
 
-    if (dados.username) {
-      setUser(dados.username)
+      if (dados.username) {
+        setUser(dados.username)
+      }
     }
   }, [])
 
