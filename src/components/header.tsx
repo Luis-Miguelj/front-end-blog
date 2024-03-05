@@ -15,24 +15,24 @@ export function Header() {
   console.log(width)
   const [showOrClose, setShowOrClose] = useState<boolean>()
 
-  useEffect(() => {
-    const userLocalStorage = localStorage.getItem('dados')
+  // useEffect(() => {
+  //   const userLocalStorage = localStorage.getItem('dados')
 
-    const dados = JSON.parse(userLocalStorage!)
+  //   const dados = JSON.parse(userLocalStorage!)
 
-    // console.log(dados)
-    if (dados !== '') {
-      setUser(dados)
-    } else {
-      alert('erro')
-    }
+  //   // console.log(dados)
+  //   if (dados !== '') {
+  //     setUser(dados)
+  //   } else {
+  //     alert('erro')
+  //   }
 
-    if (dados.email === 'luismigueljacobus01@gmail.com') {
-      setCargo('Adm')
-    } else {
-      setCargo('Visitante')
-    }
-  }, [])
+  //   if (dados.email === 'luismigueljacobus01@gmail.com') {
+  //     setCargo('Adm')
+  //   } else {
+  //     setCargo('Visitante')
+  //   }
+  // }, [])
 
   console.log(user)
 
