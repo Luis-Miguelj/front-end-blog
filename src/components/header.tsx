@@ -8,8 +8,8 @@ export function Header() {
   const width = window.innerWidth
   // const [cargo, setCargo] = useState('')
   const [user, setUser] = useState({
-    // username: '',
-    // email: '',
+    username: '',
+    email: '',
   })
 
   console.log(width)
@@ -17,7 +17,7 @@ export function Header() {
 
   useEffect(() => {
     const userLocalStorage = localStorage.getItem('dados')
-    const dados = JSON.stringify(userLocalStorage as string)
+    const dados = JSON.parse(userLocalStorage as string)
 
     // console.log(dados)
     if (dados !== '') {
