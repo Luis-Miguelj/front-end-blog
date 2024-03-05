@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 interface PostPageProps {
   title: string
-  postagens: string
+  postagem: string
 }
 
 const createPostSchema = z.object({
@@ -55,14 +55,16 @@ export function PostPage() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<CreatePostFormData>({
     resolver: zodResolver(createPostSchema),
   })
 
   // const [output, setOutput] = useState('')
 
-  function createPost(data: any) {
+  function createPost(data: PostPageProps) {
     mutation.mutate(data)
+    reset()
     // setOutput(JSON.stringify(data))
   }
 

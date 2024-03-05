@@ -1,4 +1,6 @@
 import { CircleUserRound } from 'lucide-react'
+import { User } from '../user/user'
+import { useState } from 'react'
 
 export function Header() {
   // console.log(pathname.toString())
@@ -6,9 +8,18 @@ export function Header() {
   const width = window.innerWidth
 
   console.log(width)
+  const [showOrClose, setShowOrClose] = useState<boolean>()
+
+  function handleModal(validate: boolean) {
+    if (!validate) {
+      setShowOrClose(true)
+    } else {
+      setShowOrClose(false)
+    }
+  }
 
   return (
-    <header className="flex flex-col justify-center px-10 h-[8.5rem] border-b-[0.5px] border-zinc-700 overflow-hidden">
+    <header className="flex flex-col justify-center px-10 h-[8.5rem] border-b-[0.5px] border-zinc-700 overflow-hidden max-sm:text-[10px]">
       <div className="flex pt-10 justify-between items-center h-1/2 text-base overflow-hidden">
         <div className="flex items-center text-zinc-50 text-xs font-medium gap-5">
           <img src="./logo.svg" alt="logo" className="w-20 h-14 object-cover" />
@@ -20,9 +31,16 @@ export function Header() {
           </div>
         </div>
         <div className="flex items-center justify-center h-64 overflow-hidden">
-          <button className="full">
+          <button className="" onClick={() => handleModal(false)}>
             <CircleUserRound size={32} />
           </button>
+          {showOrClose === true ? (
+            <div className="absolute right-0 top-0 flex justify-center items-center w-full h-screen bg-zinc-800 bg-opacity-55">
+              <User handleModal={handleModal} />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
       <div className="flex px-3 items-center max-sm:justify-center gap-3 h-1/2 font-medium text-xs">

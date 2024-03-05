@@ -39,9 +39,9 @@ export function SobreMim() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col items-center space-y-10 px-5">
+      <div className="w-full flex flex-col max-w-xl items-center break-words text-wrap max-2xl:pb-10 max-2xl:max-w-3xl space-y-10 px-5">
         <h1 className="text-xl font-medium">Seja Bem Vindo</h1>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 max-2xl:w-full">
           <p>
             Me chamo Luís Miguel Jacobus, tenho 19 anos e atualmente trabalho na
             Prosolar Soluções em Energia. Monto orçamentos para os clientes e
