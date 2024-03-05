@@ -10,7 +10,6 @@ export function Header() {
   const [user, setUser] = useState<string>('')
 
   const [showOrClose, setShowOrClose] = useState<boolean>()
-  const [reload, setReload] = useState<boolean>()
 
   useEffect(() => {
     const userLocalStorage = localStorage.getItem('dados')
@@ -26,10 +25,6 @@ export function Header() {
     if (dados.email === 'luismigueljacobus01@gmail.com') {
       console.log('passou')
       setCargo('Adm')
-      if (!reload) {
-        setReload(true)
-        console.log('reload efetuado')
-      }
     } else {
       console.log('n consta')
       setCargo('Visitante')
