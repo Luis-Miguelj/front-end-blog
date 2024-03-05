@@ -2,10 +2,10 @@ import { CircleUserRound } from 'lucide-react'
 import { User } from '../user/user'
 import { useEffect, useState } from 'react'
 
-// interface DadosProps {
-//   username: string
-//   email: string
-// }
+interface DadosProps {
+  username: string
+  email: string
+}
 
 export function Header() {
   // console.log(pathname.toString())
@@ -18,7 +18,7 @@ export function Header() {
 
   useEffect(() => {
     const userLocalStorage = localStorage.getItem('dados')
-    const dados = JSON.parse(userLocalStorage as string)
+    const dados: DadosProps = JSON.parse(userLocalStorage as string)
 
     // console.log(dados)
     // if (dados !== '') {
