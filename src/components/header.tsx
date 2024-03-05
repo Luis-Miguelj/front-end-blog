@@ -17,7 +17,7 @@ export function Header() {
 
   useEffect(() => {
     const userLocalStorage = localStorage.getItem('dados')
-    const dados = JSON.parse(userLocalStorage as string)
+    const dados = JSON.stringify(userLocalStorage as string)
 
     // console.log(dados)
     if (dados !== '') {
@@ -50,7 +50,7 @@ export function Header() {
           </div>
         </div>
         <div className="flex items-center gap-5 justify-center h-64 overflow-hidden">
-          <a className="text-xs font-medium">Usuario: {user.username}</a>
+          <a className="text-xs font-medium">Usuario: </a>
           <button className="" onClick={() => handleModal(false)}>
             <CircleUserRound size={32} />
           </button>
