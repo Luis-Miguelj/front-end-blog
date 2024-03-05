@@ -46,6 +46,7 @@ export function User({ handleModal }: ModalProps) {
 
   function createUser(data: UserProps) {
     setOutput(JSON.stringify(data))
+    localStorage.setItem('dados', JSON.stringify(data))
 
     reset()
   }

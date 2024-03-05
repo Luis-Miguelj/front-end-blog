@@ -1,14 +1,40 @@
 import { CircleUserRound } from 'lucide-react'
 import { User } from '../user/user'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function Header() {
   // console.log(pathname.toString())
 
   const width = window.innerWidth
+  const [cargo, setCargo] = useState('')
+  const [user, setUser] = useState({
+    username: '',
+    email: '',
+  })
 
   console.log(width)
   const [showOrClose, setShowOrClose] = useState<boolean>()
+
+  useEffect(() => {
+    const userLocalStorage = localStorage.getItem('dados')
+
+    const dados = JSON.parse(userLocalStorage!)
+
+    // console.log(dados)
+    if (dados !== '') {
+      setUser(dados)
+    } else {
+      alert('erro')
+    }
+
+    if (dados.email === 'luismigueljacobus01@gmail.com') {
+      setCargo('Adm')
+    } else {
+      setCargo('Visitante')
+    }
+  }, [])
+
+  console.log(user)
 
   function handleModal(validate: boolean) {
     if (!validate) {
@@ -27,10 +53,11 @@ export function Header() {
             <p className="text-zinc-600 font-semibold">/</p>
             <a href="/">Início</a>
             <p className="text-zinc-600 font-semibold">/</p>
-            <h1>Cargo: Visitante</h1>
+            <h1>Cargo: {cargo}</h1>
           </div>
         </div>
-        <div className="flex items-center justify-center h-64 overflow-hidden">
+        <div className="flex items-center gap-5 justify-center h-64 overflow-hidden">
+          <a className="text-xs font-medium">Usuario: {user.username}</a>
           <button className="" onClick={() => handleModal(false)}>
             <CircleUserRound size={32} />
           </button>
