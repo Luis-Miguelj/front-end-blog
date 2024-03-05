@@ -26,12 +26,6 @@ export function Header() {
     } else {
       alert('erro')
     }
-
-    if (dados.email === 'luismigueljacobus01@gmail.com') {
-      setCargo('Adm')
-    } else {
-      setCargo('Visitante')
-    }
   }, [userLocalStorage])
 
   console.log(user)
