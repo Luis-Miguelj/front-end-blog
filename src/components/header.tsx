@@ -6,7 +6,7 @@ export function Header() {
   // console.log(pathname.toString())
 
   const width = window.innerWidth
-  // const [cargo, setCargo] = useState('')
+  const [cargo, setCargo] = useState('')
   const [user, setUser] = useState({
     username: '',
     email: '',
@@ -29,6 +29,12 @@ export function Header() {
 
   console.log(user)
 
+  if (user.email === 'luismigueljacobus01@gmail.com') {
+    setCargo('Adm')
+  } else {
+    setCargo('Visitante')
+  }
+
   function handleModal(validate: boolean) {
     if (!validate) {
       setShowOrClose(true)
@@ -46,7 +52,7 @@ export function Header() {
             <p className="text-zinc-600 font-semibold">/</p>
             <a href="/">Início</a>
             <p className="text-zinc-600 font-semibold">/</p>
-            <h1>Cargo: </h1>
+            <h1>Cargo: {cargo}</h1>
           </div>
         </div>
         <div className="flex items-center gap-5 justify-center h-64 overflow-hidden">
