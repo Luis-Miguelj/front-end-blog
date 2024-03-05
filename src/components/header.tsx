@@ -5,14 +5,13 @@ import { useEffect, useState } from 'react'
 export function Header() {
   // console.log(pathname.toString())
 
-  const width = window.innerWidth
+  // const width = window.innerWidth
   const [cargo, setCargo] = useState('')
   const [user, setUser] = useState({
     username: '',
     email: '',
   })
 
-  console.log(width)
   const [showOrClose, setShowOrClose] = useState<boolean>()
 
   useEffect(() => {
@@ -28,12 +27,6 @@ export function Header() {
   }, [])
 
   console.log(user)
-
-  // if (user.email === 'luismigueljacobus01@gmail.com') {
-  //   setCargo('Adm')
-  // } else {
-  //   setCargo('Visitante')
-  // }
 
   function handleModal(validate: boolean) {
     if (!validate) {
