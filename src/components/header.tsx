@@ -7,10 +7,7 @@ export function Header() {
 
   // const width = window.innerWidth
   const [cargo, setCargo] = useState('')
-  const [user, setUser] = useState({
-    username: '',
-    email: '',
-  })
+  const [user, setUser] = useState<string>('')
 
   const [showOrClose, setShowOrClose] = useState<boolean>()
 
@@ -24,9 +21,26 @@ export function Header() {
     } else {
       alert('erro')
     }
+
+    if (dados.email === 'luismigueljacobus01@gmail.com') {
+      console.log('passou')
+      setCargo('Adm')
+    } else {
+      console.log('n consta')
+      setCargo('Visitante')
+    }
+
+    if (dados.username) {
+      setUser(dados.username)
+    }
   }, [])
 
-  console.log(user)
+  // useEffect(() => {
+  //   console.log('Mudou')
+  //   console.log(user)
+  // }, [user])
+
+  // console.log(user)
 
   function handleModal(validate: boolean) {
     if (!validate) {
@@ -49,10 +63,14 @@ export function Header() {
           </div>
         </div>
         <div className="flex items-center gap-5 justify-center h-64 overflow-hidden">
-          <a className="text-xs font-medium">Usuario: </a>
-          <button className="" onClick={() => handleModal(false)}>
+          <a className="text-xs font-medium">Usuario: {user}</a>
+          {user ? (
             <CircleUserRound size={32} />
-          </button>
+          ) : (
+            <button className="" onClick={() => handleModal(false)}>
+              <CircleUserRound size={32} />
+            </button>
+          )}
           {showOrClose === true ? (
             <div className="absolute right-0 top-0 flex justify-center items-center w-full h-screen bg-zinc-800 bg-opacity-55">
               <User handleModal={handleModal} />
