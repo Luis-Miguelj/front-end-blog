@@ -1,5 +1,5 @@
 #img-perfil{
-  background-image: url('./foto-blog.jpg');
+  background-image: url('../../../public/foto-blog.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   /* background-attachment: fixed; */
