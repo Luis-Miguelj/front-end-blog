@@ -46,13 +46,13 @@ export function Header() {
       setShowOrClose(false)
     }
   }
-  function responsiveMenu() {
-    if (window.innerWidth <= 1080) {
-      setTamanho(true)
-    } else {
-      setTamanho(false)
-    }
-  }
+  // function responsiveMenu() {
+  //   if (window.innerWidth <= 1080) {
+  //     setTamanho(true)
+  //   } else {
+  //     setTamanho(false)
+  //   }
+  // }
   function openOrCloseMenu(validate: boolean) {
     if (!validate) {
       setW(true)
@@ -61,7 +61,7 @@ export function Header() {
     }
   }
 
-  window.addEventListener('resize', responsiveMenu)
+  // window.addEventListener('resize', responsiveMenu)
 
   return (
     <header className="flex flex-col justify-center px-10 h-[8.5rem] border-b-[0.5px] border-zinc-700 overflow-hidden max-sm:text-[10px]">
@@ -72,11 +72,11 @@ export function Header() {
             <p className="text-zinc-600 font-semibold">/</p>
             <a href="/">Início</a>
             <p className="text-zinc-600 font-semibold">/</p>
-            {tamanho === true ? '' : <h1>Cargo: {cargo}</h1>}
+            {window.innerWidth <= 640 ? '' : <h1>Cargo: {cargo}</h1>}
           </div>
         </div>
         <div className="flex items-center gap-5 justify-center h-64 overflow-hidden">
-          {tamanho === true ? (
+          {window.innerWidth <= 640 ? (
             ''
           ) : (
             <a className="text-xs font-medium">Usuário: {user}</a>
@@ -85,14 +85,14 @@ export function Header() {
             <div>
               <button
                 onClick={() => {
-                  if (tamanho === true) {
+                  if (window.innerWidth <= 640) {
                     openOrCloseMenu(false)
                   }
                 }}
               >
                 <CircleUserRound size={32} />
               </button>
-              {tamanho === true ? (
+              {window.innerWidth <= 640 ? (
                 <Menu
                   usuario={user}
                   cargo={cargo}
@@ -104,9 +104,12 @@ export function Header() {
               )}
             </div>
           ) : (
-            <button className="" onClick={() => handleModal(false)}>
-              <CircleUserRound size={32} />
-            </button>
+            <div>
+              <button className="" onClick={() => handleModal(false)}>
+                <CircleUserRound size={32} />
+              </button>
+              <div></div>
+            </div>
           )}
           {showOrClose === true ? (
             <div className="absolute right-0 top-0 flex justify-center items-center w-full h-screen bg-zinc-800 bg-opacity-55">
