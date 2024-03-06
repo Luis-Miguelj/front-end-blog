@@ -47,7 +47,7 @@ export function Header() {
     }
   }
   function responsiveMenu() {
-    if (window.innerWidth <= 640) {
+    if (window.innerWidth < 640) {
       setTamanho(true)
     } else {
       setTamanho(false)
