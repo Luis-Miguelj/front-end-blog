@@ -46,13 +46,6 @@ export function Header() {
       setShowOrClose(false)
     }
   }
-  // function responsiveMenu() {
-  //   if (window.innerWidth <= 1080) {
-  //     setTamanho(true)
-  //   } else {
-  //     setTamanho(false)
-  //   }
-  // }
   function openOrCloseMenu(validate: boolean) {
     if (!validate) {
       setW(true)
@@ -60,8 +53,6 @@ export function Header() {
       setW(false)
     }
   }
-
-  // window.addEventListener('resize', responsiveMenu)
 
   return (
     <header className="flex flex-col justify-center px-10 h-[8.5rem] border-b-[0.5px] border-zinc-700 overflow-hidden max-sm:text-[10px]">
