@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client'
 import { App } from './app'
 import { Header } from './components/header'
 import { PostPage } from './post-page/post-page'
+import { SobreMim } from './sobre-mim/sobre-mim'
+import { Configs } from './configs/configs'
+
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import { SobreMim } from './sobre-mim/sobre-mim'
 
 const queryClient = new QueryClient()
 
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/sobre-mim',
     element: <SobreMim />,
+  },
+  {
+    path: 'configurações',
+    element: <Configs />,
   },
 ])
 

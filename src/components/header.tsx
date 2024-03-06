@@ -64,7 +64,7 @@ export function Header() {
           </div>
         </div>
         <div className="flex items-center gap-5 justify-center h-64 overflow-hidden">
-          <a className="text-xs font-medium">Usuario: {user}</a>
+          <a className="text-xs font-medium">Usuário: {user}</a>
           {user ? (
             <CircleUserRound size={32} />
           ) : (
@@ -88,9 +88,12 @@ export function Header() {
         >
           Sobre mim
         </a>
-        <button className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300">
+        <a
+          href="/configurações"
+          className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300"
+        >
           Configurações
-        </button>
+        </a>
         <button className="p-2 rounded-md hover:bg-zinc-800 transition-all duration-300">
           Contato
         </button>
