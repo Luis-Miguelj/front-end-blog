@@ -15,7 +15,6 @@ export function Header() {
   const [cargo, setCargo] = useState('')
   const [user, setUser] = useState<string>('')
   const [w, setW] = useState(false)
-  const [tamanho, setTamanho] = useState(false)
 
   const [showOrClose, setShowOrClose] = useState<boolean>()
 
