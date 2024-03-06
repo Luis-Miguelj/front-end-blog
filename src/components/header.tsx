@@ -1,6 +1,7 @@
 import { CircleUserRound } from 'lucide-react'
 import { User } from '../user/user'
 import { useEffect, useState } from 'react'
+import { Menu } from './menu/menu'
 
 interface DadosProps {
   username: string
@@ -13,6 +14,8 @@ export function Header() {
   // const width = window.innerWidth
   const [cargo, setCargo] = useState('')
   const [user, setUser] = useState<string>('')
+  const [w, setW] = useState(false)
+  const [tamanho, setTamanho] = useState(false)
 
   const [showOrClose, setShowOrClose] = useState<boolean>()
 
@@ -36,13 +39,6 @@ export function Header() {
     }
   }, [])
 
-  // useEffect(() => {
-  //   console.log('Mudou')
-  //   console.log(user)
-  // }, [user])
-
-  // console.log(user)
-
   function handleModal(validate: boolean) {
     if (!validate) {
       setShowOrClose(true)
@@ -50,6 +46,22 @@ export function Header() {
       setShowOrClose(false)
     }
   }
+  function responsiveMenu() {
+    if (window.innerWidth <= 640) {
+      setTamanho(true)
+    } else {
+      setTamanho(false)
+    }
+  }
+  function openOrCloseMenu(validate: boolean) {
+    if (!validate) {
+      setW(true)
+    } else {
+      setW(false)
+    }
+  }
+
+  window.addEventListener('resize', responsiveMenu)
 
   return (
     <header className="flex flex-col justify-center px-10 h-[8.5rem] border-b-[0.5px] border-zinc-700 overflow-hidden max-sm:text-[10px]">
@@ -60,13 +72,37 @@ export function Header() {
             <p className="text-zinc-600 font-semibold">/</p>
             <a href="/">Início</a>
             <p className="text-zinc-600 font-semibold">/</p>
-            <h1>Cargo: {cargo}</h1>
+            {tamanho === true ? '' : <h1>Cargo: {cargo}</h1>}
           </div>
         </div>
         <div className="flex items-center gap-5 justify-center h-64 overflow-hidden">
-          <a className="text-xs font-medium">Usuário: {user}</a>
+          {tamanho === true ? (
+            ''
+          ) : (
+            <a className="text-xs font-medium">Usuário: {user}</a>
+          )}
           {user ? (
-            <CircleUserRound size={32} />
+            <div>
+              <button
+                onClick={() => {
+                  if (tamanho === true) {
+                    openOrCloseMenu(false)
+                  }
+                }}
+              >
+                <CircleUserRound size={32} />
+              </button>
+              {tamanho === true ? (
+                <Menu
+                  usuario={user}
+                  cargo={cargo}
+                  width={w}
+                  openOrCloseMenu={openOrCloseMenu}
+                />
+              ) : (
+                ''
+              )}
+            </div>
           ) : (
             <button className="" onClick={() => handleModal(false)}>
               <CircleUserRound size={32} />

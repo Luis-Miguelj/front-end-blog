@@ -1,4 +1,4 @@
-import { Navigate, redirect, useLocation } from 'react-router-dom'
+import { redirect, useLocation } from 'react-router-dom'
 export function PrivateRoute() {
   const location = useLocation()
   console.log(location.pathname)
