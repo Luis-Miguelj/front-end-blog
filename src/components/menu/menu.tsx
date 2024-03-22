@@ -7,6 +7,10 @@ interface MenuProps {
 }
 export function Menu({ usuario, cargo, width, openOrCloseMenu }: MenuProps) {
   // const [tamanho, setTamanho]
+  const localstorage = () => {
+    localStorage.removeItem('dados')
+    window.location.reload()
+  }
 
   return (
     <div
@@ -24,12 +28,15 @@ export function Menu({ usuario, cargo, width, openOrCloseMenu }: MenuProps) {
             Status: {usuario ? 'online' : 'offline'}
           </label>
         </div>
-        <div className="container flex justify-start items-center h-10 pl-5 pb-5 text-xs font-medium absolute bottom-0">
+        <div className="container flex justify-between items-center h-10 px-5 pb-5 text-xs font-medium absolute bottom-0">
           <button onClick={() => openOrCloseMenu(true)}>
             <ArrowRight
               size={20}
               className="rounded hover:bg-zinc-600 transition-all duration-300"
             />
+          </button>
+          <button onClick={localstorage} className="p-2 rounded bg-zinc-800">
+            Logout
           </button>
         </div>
       </div>
